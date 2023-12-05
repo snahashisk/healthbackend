@@ -74,6 +74,10 @@ app.get("/getUserData/:userId", async (req, res) => {
   }
 });
 
+app.get("/hello", (req, res) => {
+  res.send("Hello World");
+});
+
 connectDatabase();
 app.listen(port, () => {
   console.log("Server is listening on Port 8000");
