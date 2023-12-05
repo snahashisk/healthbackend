@@ -14,7 +14,21 @@ const port = process.env.PORT || 8000;
 app.post("/register", async (req, res) => {
   try {
     const { email, password } = req.body;
-    const user = new User({ email, password });
+    const defaultUserInfo = {
+      name: "Demo Name",
+      age: 30,
+      height: 170,
+      weight: 65,
+      bloodGroup: "O+",
+      temperature: "98.6",
+      bloodPressure: { systolic: 120, diastolic: 80 },
+      bloodSugar: { value: 100, unit: "80" },
+    };
+    const user = new User({
+      email,
+      password,
+      ...defaultUserInfo,
+    });
     await user.save();
     res.status(201).json({ message: "Registration successful" });
   } catch (error) {
