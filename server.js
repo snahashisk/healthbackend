@@ -1,5 +1,4 @@
 const express = require("express");
-const multer = require("multer");
 require("dotenv").config();
 const app = express();
 const connectDatabase = require("./db/dbConnection");
@@ -8,6 +7,7 @@ const cors = require("cors");
 
 app.use(express.json());
 app.use(cors());
+const port = process.env.PORT || 8000;
 
 //registration
 
@@ -75,6 +75,6 @@ app.get("/getUserData/:userId", async (req, res) => {
 });
 
 connectDatabase();
-app.listen(process.env.PORT, () => {
+app.listen(port, () => {
   console.log("Server is listening on Port 8000");
 });
