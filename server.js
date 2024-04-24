@@ -15,14 +15,14 @@ app.post("/register", async (req, res) => {
   try {
     const { email, password } = req.body;
     const defaultUserInfo = {
-      name: "Demo Name",
-      age: 30,
-      height: 170,
-      weight: 65,
-      bloodGroup: "O+",
-      temperature: "98.6",
-      bloodPressure: { systolic: 120, diastolic: 80 },
-      bloodSugar: { value: 100, unit: "80" },
+      name: "",
+      age: null,
+      height: null,
+      weight: null,
+      bloodGroup: "",
+      temperature: "",
+      bloodPressure: { systolic: null, diastolic: null },
+      bloodSugar: { value: null, unit: "" },
     };
     const user = new User({
       email,
