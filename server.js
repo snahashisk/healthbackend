@@ -13,9 +13,9 @@ const port = process.env.PORT || 8000;
 
 app.post("/register", async (req, res) => {
   try {
-    const { email, password } = req.body;
+    const { email, password, firstName, lastName } = req.body;
     const defaultUserInfo = {
-      name: "",
+      name: `${firstName} ${lastName}`,
       age: null,
       height: null,
       weight: null,
